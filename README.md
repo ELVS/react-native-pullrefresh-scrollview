@@ -224,3 +224,8 @@ onLoadMore(PullRefresh){
 
 ## 合作开发
 此组件目前仅支持ios平台，android平台暂不支持，欢迎有兴趣的小伙伴一起加入开发，将android版的开发出来！
+
+## android初始版
+onScroll属性中回调函数返回的e.nativeEvent.contentOffset.y最小只能到0，所以导致无法使用，解决方案是采用onTouchStart + onTouchMove处理。目前基本可用，还望有兴趣的大神帮忙改进，以便后来者
+
+另外，因RN的ScrollView在IOS新系统中（>11）下拉,若未触发onRefreshEnd方法，会导致顶部出现部分安全距离，从而显示大概20像素的加载状态器（后发现的，未来得及改）
